@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Offerings() {
   return (
-    <div className="min-h-[80vh] flex items-center justify-center p-4">
+    <div className="min-h-[80vh] flex items-center justify-center p-4 bg-[url(../src/img/IMG.jpeg)]">
       <div className="bg-white bg-opacity-80 p-6 sm:p-8 rounded-lg shadow-lg text-center w-full max-w-lg">
         <h2 className="text-2xl sm:text-3xl font-bold mb-4">O que oferecemos</h2>
         <p className="text-lg font-serif mb-4">

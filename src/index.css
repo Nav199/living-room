@@ -1,9 +1,7 @@
 @import "tailwindcss";
 
 /* Defina a imagem de fundo aqui */
-.custom-bg {
-  background-image: url('../src/img/IMG.jpeg');
-  background-size: 85%; /* Garante que a imagem cubra toda a área */
+.bg-cover {
+  background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
 }

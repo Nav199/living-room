@@ -1,52 +1,56 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-import AppRoutes from "./routers/AppRoutes";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { useState } from "react";
+import Home from "./pages/Home";
+import Offerings from "./components/Offerings";
+import Contact from "./components/Contact";
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-white">
-        {/* Header */}
-        <header className="bg-sky-400 py-4 shadow-md">
-          <div className="container mx-auto flex justify-between items-center px-4">
-            <Link to="/" className="text-lg sm:text-xl font-serif">
-              Sala do Reforço e Acompanhamento Escolar
-            </Link>
+      <header className="bg-sky-400 py-2 shadow-md">
+        <div className="container mx-auto flex justify-between items-center px-4">
+          <Link to="/" className="text-lg font-serif">
+            Sala do Reforço
+          </Link>
 
-            {/* Menu para Desktop */}
-            <nav className="hidden md:flex space-x-4">
-              <Link to="/offerings" className="text-gray-800 hover:text-gray-600 font-serif">O que é oferecido</Link>
-              <Link to="/contact" className="text-gray-800 hover:text-gray-600 font-serif">Contato</Link>
-            </nav>
+          {/* Botão do menu para Mobile */}
+          <button className="md:hidden text-gray-800 text-2xl" onClick={toggleMenu}>
+            ☰
+          </button>
 
-            {/* Botão de menu para Mobile */}
-            <button className="md:hidden text-gray-800 text-2xl" onClick={toggleMenu}>
-              ☰
-            </button>
+          {/* Menu Desktop */}
+          <nav className="hidden md:flex space-x-4">
+            <Link to="/offerings" className="text-gray-800 hover:text-gray-600 font-serif">O que é oferecido</Link>
+            <Link to="/contact" className="text-gray-800 hover:text-gray-600 font-serif">Contato</Link>
+          </nav>
+        </div>
+
+        {/* Menu Mobile (Tela Pequena) */}
+        {menuOpen && (
+          <div className="md:hidden bg-white shadow-md flex flex-col text-center">
+            <Link to="/offerings" className="block py-2 px-4 border-b">O que é oferecido</Link>
+            <Link to="/contact" className="block py-2 px-4">Contato</Link>
           </div>
+        )}
+      </header>
 
-          {/* Menu para Celular */}
-          {menuOpen && (
-            <div className="md:hidden bg-white shadow-md flex flex-col">
-              <Link to="/offerings" className="block py-2 px-4 border-b">O que é oferecido</Link>
-              <Link to="/contact" className="block py-2 px-4">Contato</Link>
-            </div>
-          )}
-        </header>
+      <main className="p-4">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/offerings" element={<Offerings />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
 
-        {/* Main Content */}
-        <main className="flex-grow container mx-auto py-8 px-4">
-          <AppRoutes />
-        </main>
-
-        {/* Footer */}
-        <footer className="bg-sky-500 py-3 text-center">
-          <small>Aprender é um ato de coragem. Ensinar é um ato de amor.</small>
-        </footer>
-      </div>
+      <footer className="bg-sky-500 py-2 text-center">
+        <small>Aprender é um ato de coragem. Ensinar é um ato de amor.</small>
+      </footer>
     </Router>
   );
 }
