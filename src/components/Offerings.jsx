@@ -2,10 +2,10 @@ import React from "react";
 
 export default function Offerings() {
   return (
-    <div className="min-h-[80vh] flex items-center justify-center custom-bg">
-      <div className="bg-white bg-opacity-80 p-8 rounded-lg shadow-lg text-center max-w-lg mx-auto">
+    <div className="min-h-[80vh] flex items-center justify-center p-4">
+      <div className="bg-white bg-opacity-80 p-6 sm:p-8 rounded-lg shadow-lg text-center w-full max-w-lg">
         <h2 className="text-2xl sm:text-3xl font-bold mb-4">O que oferecemos</h2>
-        <p className="text-lg mb-4 font-serif">
+        <p className="text-lg font-serif mb-4">
           Nosso objetivo é proporcionar um ambiente acolhedor para reforço e acompanhamento escolar. Oferecemos:
         </p>
         <ul className="list-disc text-left px-5 space-y-2 font-serif">
@@ -16,7 +16,7 @@ export default function Offerings() {
           <li>Revisão dos conteúdos em semana de avaliações.</li>
         </ul>
 
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
           {/* Horários Disponíveis */}
           <div>
             <h3 className="text-xl font-semibold mb-2">Horários Disponíveis:</h3>
