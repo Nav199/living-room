@@ -1,20 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import AppRoutes from "./routers/AppRoutes";
 
 export default function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
   return (
     <Router>
       <div className="flex flex-col min-h-screen bg-white">
         {/* Header */}
         <header className="bg-sky-400 py-4 shadow-md">
           <div className="container mx-auto flex justify-between items-center px-4 sm:px-6 md:px-8">
-            <h1 className="text-xl font-serif">Sala de Reforço e Acompanhamento Escolar</h1>
-            <nav>
-              <Link to="/offerings" className="mx-4 text-gray-800 hover:text-gray-600">O que é oferecido</Link>
-              <Link to="/contact" className="mx-4 text-gray-800 hover:text-gray-600">Contato</Link>
+            {/* Link para a Home */}
+            <Link to="/" className="text-xl font-serif">
+              Sala do Reforço e Acompanhamento Escolar
+            </Link>
+
+            {/* Menu para Desktop */}
+            <nav className="hidden md:flex space-x-4">
+              <Link to="/offerings" className="text-gray-800 hover:text-gray-600 font-serif">O que é oferecido</Link>
+              <Link to="/contact" className="text-gray-800 hover:text-gray-600 font-serif">Contato</Link>
             </nav>
+
+            {/* Botão de menu para Mobile */}
+            <button className="md:hidden text-gray-800" onClick={toggleMenu}>
+              ☰
+            </button>
           </div>
+
+          {/* Menu para Celular */}
+          {menuOpen && (
+            <div className="md:hidden bg-white shadow-md">
+              <Link to="/offerings" className="block py-2 px-4 border-b">O que é oferecido</Link>
+              <Link to="/contact" className="block py-2 px-4">Contato</Link>
+            </div>
+          )}
         </header>
 
         {/* Main Content */}
