@@ -7,7 +7,7 @@ export default function Contact() {
         <p className="text-lg font-serif mb-4">
           Para mais informações, entre em contato conosco pelos canais abaixo:
         </p>
-        <p className="text-gray-700 font-serif">📞 Telefone: (92) 99238-0614</p>
+        <p className="text-gray-700 font-serif">📞 Telefone: (92) 99317-0508</p>
         <p className="text-gray-700 font-serif">📧 Email: virodrigues2@yahoo.com.br</p>
         <p className="text-gray-700 font-serif"> Formulário {" "}
         <a
