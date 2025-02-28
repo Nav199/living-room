@@ -8,7 +8,7 @@ export default function Contact() {
           Para mais informações, entre em contato conosco pelos canais abaixo:
         </p>
         <p className="text-gray-700 font-serif">📞 Telefone: (92) 99238-0614</p>
-        <p className="text-gray-700 font-serif">📧 Email: contato@reforcoescolar.com</p>
+        <p className="text-gray-700 font-serif">📧 Email: virodrigues2@yahoo.com.br</p>
         <p className="text-gray-700 font-serif"> Formulário {" "}
         <a
           href="https://docs.google.com/forms/d/1EkHpB-emlGCjLKWNlWltXKecFKl2aP6xvtSX3MXiimA/viewform?edit_requested=true"
